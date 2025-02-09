@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS advanced_filters (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    user_profile_id INT NOT NULL,
+    is_profile_verified boolean,
+    is_online boolean,
+    height varchar(100),
+    exercise varchar(100),
+    religion varchar(100),
+    education varchar(100),
+    occupation varchar(100),
+    marital_status varchar(100),
+    drink varchar(100),
+    smoke varchar(100),
+    deleted_at TIMESTAMP DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_profile_id) REFERENCES user_profile(ID),
+    FOREIGN KEY (user_id) REFERENCES users(ID)
+);

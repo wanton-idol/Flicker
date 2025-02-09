@@ -1,0 +1,1 @@
+ALTER TABLE profile_media ADD COLUMN city varchar(100) DEFAULT null;

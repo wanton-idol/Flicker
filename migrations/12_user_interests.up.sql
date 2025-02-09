@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS user_interests(
+    ID INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    interest_id INT NOT NULL,
+    interest_values VARCHAR(50),
+    deleted_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (user_id) REFERENCES users(ID),
+    FOREIGN KEY (interest_id) REFERENCES interests(ID)
+);

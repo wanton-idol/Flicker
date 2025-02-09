@@ -1,0 +1,2488 @@
+definitions:
+  dto.AdvancedFilter:
+    properties:
+      drink:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Drink'
+        type: array
+      education:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.EducationLevel'
+        type: array
+      exercise:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Exercise'
+        type: array
+      have_or_want_children:
+        items:
+          type: string
+        type: array
+      height:
+        items:
+          type: integer
+        type: array
+      incognito_mode:
+        type: boolean
+      is_online:
+        type: boolean
+      is_profile_verified:
+        type: boolean
+      looking_for:
+        items:
+          type: string
+        type: array
+      marital_status:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.MaritalStatus'
+        type: array
+      occupation:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Occupation'
+        type: array
+      politics_likes:
+        items:
+          type: string
+        type: array
+      religion:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Religion'
+        type: array
+      smoke:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Smoke'
+        type: array
+      star_sign:
+        items:
+          type: string
+        type: array
+    type: object
+  dto.CreateEventDTO:
+    properties:
+      attendee:
+        type: string
+      date_time:
+        type: string
+      description:
+        type: string
+      expires_at:
+        type: string
+      id:
+        type: integer
+      location:
+        $ref: '#/definitions/dto.Location'
+      type:
+        type: string
+    type: object
+  dto.EventFilterDTO:
+    properties:
+      distance:
+        type: integer
+      end_date:
+        type: string
+      start_date:
+        type: string
+      type:
+        type: string
+    type: object
+  dto.EventResponseDTO:
+    properties:
+      attendees:
+        type: string
+      created_at:
+        type: string
+      date_time:
+        type: string
+      description:
+        type: string
+      expires_at:
+        type: string
+      id:
+        type: integer
+      location:
+        $ref: '#/definitions/dto.Location'
+      type:
+        type: string
+    type: object
+  dto.Location:
+    properties:
+      address1:
+        type: string
+      address2:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      pincode:
+        type: string
+      state:
+        type: string
+    type: object
+  dto.Login:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  dto.UserData:
+    properties:
+      phoneNumber:
+        type: string
+    type: object
+  dto.UserEmail:
+    properties:
+      email:
+        type: string
+    type: object
+  dto.UserIDToken:
+    properties:
+      id_token:
+        type: string
+    type: object
+  dto.UserLikeDTO:
+    properties:
+      likeeID:
+        type: integer
+      likerID:
+        type: integer
+      type:
+        type: integer
+    type: object
+  dto.UserMatchDTO:
+    properties:
+      ID:
+        type: integer
+      chat_id:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      match_id:
+        type: integer
+      media_id:
+        type: integer
+      order_id:
+        type: integer
+      url:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  dto.UserProfile:
+    properties:
+      about:
+        type: string
+      date_of_birth:
+        type: string
+      drink:
+        $ref: '#/definitions/elasticsearchPkg.Drink'
+      education:
+        $ref: '#/definitions/elasticsearchPkg.Education'
+      exercise:
+        $ref: '#/definitions/elasticsearchPkg.Exercise'
+      first_name:
+        type: string
+      gender:
+        $ref: '#/definitions/elasticsearchPkg.Gender'
+      height:
+        type: integer
+      id:
+        type: integer
+      is_premium:
+        type: boolean
+      is_verified:
+        type: boolean
+      last_name:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      looking_for:
+        $ref: '#/definitions/elasticsearchPkg.LookingFor'
+      marital_status:
+        $ref: '#/definitions/elasticsearchPkg.MaritalStatus'
+      occupation:
+        $ref: '#/definitions/elasticsearchPkg.Occupation'
+      pronoun:
+        type: string
+      religion:
+        $ref: '#/definitions/elasticsearchPkg.Religion'
+      sexual_orientation:
+        $ref: '#/definitions/elasticsearchPkg.SexualOrientation'
+      smoke:
+        $ref: '#/definitions/elasticsearchPkg.Smoke'
+      user_id:
+        type: integer
+      weight:
+        type: integer
+    type: object
+  dto.UserRegistrationDTO:
+    properties:
+      code:
+        type: string
+      email:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: string
+      last_name:
+        type: string
+      mobile:
+        type: string
+      password:
+        type: string
+    type: object
+  dto.UserSearchProfile:
+    properties:
+      distance:
+        type: integer
+      gender:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Gender'
+        type: array
+      hide_my_name:
+        type: boolean
+      id:
+        type: integer
+      language:
+        items:
+          type: string
+        type: array
+      max_age:
+        type: integer
+      min_age:
+        type: integer
+      snooze:
+        type: string
+    type: object
+  dto.VerifyUser:
+    properties:
+      otp:
+        type: string
+      user:
+        $ref: '#/definitions/dto.UserData'
+    type: object
+  elasticsearchPkg.AdvancedFilter:
+    properties:
+      drink:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Drink'
+        type: array
+      education:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.EducationLevel'
+        type: array
+      exercise:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Exercise'
+        type: array
+      have_or_want_children:
+        items:
+          type: string
+        type: array
+      height:
+        items:
+          type: integer
+        type: array
+      incognito_mode:
+        type: boolean
+      is_online:
+        type: boolean
+      is_profile_verified:
+        type: boolean
+      looking_for:
+        items:
+          type: string
+        type: array
+      marital_status:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.MaritalStatus'
+        type: array
+      occupation:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Occupation'
+        type: array
+      politics_likes:
+        items:
+          type: string
+        type: array
+      religion:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Religion'
+        type: array
+      smoke:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Smoke'
+        type: array
+      star_sign:
+        items:
+          type: string
+        type: array
+    type: object
+  elasticsearchPkg.Drink:
+    enum:
+    - frequently
+    - socially
+    - rarely
+    - never
+    - Sober
+    type: string
+    x-enum-varnames:
+    - Drink_Frequently
+    - Drink_Socially
+    - Drink_Rarely
+    - Drink_Never
+    - Drink_Sober
+  elasticsearchPkg.Education:
+    properties:
+      college:
+        type: string
+      education_level:
+        $ref: '#/definitions/elasticsearchPkg.EducationLevel'
+    type: object
+  elasticsearchPkg.EducationLevel:
+    enum:
+    - high school
+    - vocational school
+    - in college
+    - undergraduate degree
+    - in grad school
+    - graduate degree
+    type: string
+    x-enum-varnames:
+    - HighSchool
+    - VocationalSchool
+    - InCollege
+    - UnderGraduateDegree
+    - InGradSchool
+    - GraduateDegree
+  elasticsearchPkg.Exercise:
+    enum:
+    - active
+    - sometimes
+    - almost never
+    type: string
+    x-enum-varnames:
+    - Exercise_Active
+    - Exercise_Sometimes
+    - Exercise_AlmostNever
+  elasticsearchPkg.Gender:
+    enum:
+    - male
+    - female
+    - binary
+    type: string
+    x-enum-varnames:
+    - MALE
+    - FEMALE
+    - BINARY
+  elasticsearchPkg.Image:
+    properties:
+      id:
+        type: integer
+      order:
+        type: integer
+      url:
+        type: string
+    type: object
+  elasticsearchPkg.LookingFor:
+    enum:
+    - relationship
+    - marriage
+    - casual
+    - NotKnownYet
+    type: string
+    x-enum-varnames:
+    - Relationship
+    - Marriage
+    - Casual
+    - NotKnownYet
+  elasticsearchPkg.MaritalStatus:
+    enum:
+    - single
+    - married
+    - divorced
+    - widowed
+    type: string
+    x-enum-varnames:
+    - Single
+    - Married
+    - Divorced
+    - Widowed
+  elasticsearchPkg.Occupation:
+    enum:
+    - student
+    - doctor
+    - engineer
+    - entrepreneur
+    - other
+    type: string
+    x-enum-varnames:
+    - Student
+    - Doctor
+    - Engineer
+    - Entrepreneur
+    - Other
+  elasticsearchPkg.Religion:
+    enum:
+    - agnostic
+    - atheist
+    - catholic
+    - hindu
+    - muslim
+    - christian
+    - jain
+    - sikh
+    - buddhist
+    - jewish
+    - mormon
+    - latter-day saint
+    - zoroastrian
+    - spiritual
+    type: string
+    x-enum-varnames:
+    - Agnostic
+    - Atheist
+    - Catholic
+    - Hindu
+    - Muslim
+    - Christian
+    - Jain
+    - Sikh
+    - Buddhist
+    - Jewish
+    - Mormon
+    - LatterDaySaint
+    - Zoroastrian
+    - Spiritual
+  elasticsearchPkg.SexualOrientation:
+    enum:
+    - heterosexual
+    - homosexual
+    - bisexual
+    - asexual
+    - pansexual
+    - demisexual
+    type: string
+    x-enum-varnames:
+    - Heterosexual
+    - Homosexual
+    - Bisexual
+    - Asexual
+    - Pansexual
+    - Demisexual
+  elasticsearchPkg.Smoke:
+    enum:
+    - socially
+    - never
+    - regularly
+    type: string
+    x-enum-varnames:
+    - Smoke_Socially
+    - Smoke_Never
+    - Smoke_Regularly
+  elasticsearchPkg.UserNudgeProfile:
+    properties:
+      answer:
+        type: string
+      id:
+        type: integer
+      order:
+        type: integer
+      question:
+        type: string
+    type: object
+  elasticsearchPkg.UserProfile:
+    properties:
+      about:
+        type: string
+      date_of_birth:
+        type: string
+      drink:
+        $ref: '#/definitions/elasticsearchPkg.Drink'
+      education:
+        $ref: '#/definitions/elasticsearchPkg.Education'
+      exercise:
+        $ref: '#/definitions/elasticsearchPkg.Exercise'
+      first_name:
+        type: string
+      gender:
+        $ref: '#/definitions/elasticsearchPkg.Gender'
+      height:
+        type: integer
+      id:
+        type: integer
+      images:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Image'
+        type: array
+      is_premium:
+        type: boolean
+      is_verified:
+        type: boolean
+      last_name:
+        type: string
+      location:
+        items:
+          type: number
+        type: array
+      looking_for:
+        $ref: '#/definitions/elasticsearchPkg.LookingFor'
+      marital_status:
+        $ref: '#/definitions/elasticsearchPkg.MaritalStatus'
+      occupation:
+        $ref: '#/definitions/elasticsearchPkg.Occupation'
+      pronoun:
+        type: string
+      questions:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.UserNudgeProfile'
+        type: array
+      religion:
+        $ref: '#/definitions/elasticsearchPkg.Religion'
+      sexual_orientation:
+        $ref: '#/definitions/elasticsearchPkg.SexualOrientation'
+      smoke:
+        $ref: '#/definitions/elasticsearchPkg.Smoke'
+      user_id:
+        type: integer
+      userSearchProfile:
+        $ref: '#/definitions/elasticsearchPkg.UserSearchProfile'
+      weight:
+        type: integer
+    type: object
+  elasticsearchPkg.UserSearchProfile:
+    properties:
+      advanced_filter:
+        $ref: '#/definitions/elasticsearchPkg.AdvancedFilter'
+      distance:
+        default: 10
+        type: integer
+      gender:
+        items:
+          $ref: '#/definitions/elasticsearchPkg.Gender'
+        type: array
+      hide_my_name:
+        type: boolean
+      language:
+        items:
+          type: string
+        type: array
+      max_age:
+        type: integer
+      min_age:
+        type: integer
+      snooze:
+        type: string
+    type: object
+  elasticsearchPkg.UserStories:
+    properties:
+      created_at:
+        type: string
+      expires_at:
+        type: string
+      id:
+        type: string
+      location:
+        items:
+          type: number
+        type: array
+      media_type:
+        type: string
+      media_url:
+        type: string
+      text:
+        type: string
+      user_profile_id:
+        type: integer
+    type: object
+  model.ChatIDs:
+    properties:
+      chat_ids:
+        items:
+          type: string
+        type: array
+    type: object
+  model.InterestData:
+    properties:
+      interest_details:
+        items:
+          $ref: '#/definitions/model.InterestDetails'
+        type: array
+    type: object
+  model.InterestDetails:
+    properties:
+      interest_id:
+        type: integer
+      interest_values:
+        type: string
+    type: object
+  model.InterestsCategory:
+    properties:
+      creativity:
+        items:
+          type: string
+        type: array
+      film_and_tv:
+        items:
+          type: string
+        type: array
+      food_and_drink:
+        items:
+          type: string
+        type: array
+      going_out:
+        items:
+          type: string
+        type: array
+      music:
+        items:
+          type: string
+        type: array
+      pets:
+        items:
+          type: string
+        type: array
+      pluto_values_and_allyship:
+        items:
+          type: string
+        type: array
+      reading:
+        items:
+          type: string
+        type: array
+      self_care:
+        items:
+          type: string
+        type: array
+      sports:
+        items:
+          type: string
+        type: array
+      staying_in:
+        items:
+          type: string
+        type: array
+      travelling:
+        items:
+          type: string
+        type: array
+      values_and_traits:
+        items:
+          type: string
+        type: array
+    type: object
+  model.InterestsListResponse:
+    properties:
+      creativity:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      film_and_tv:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      food_and_drink:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      going_out:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      music:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      pets:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      pluto_values_and_allyship:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      reading:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      self_care:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      sports:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      staying_in:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      travelling:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+      values_and_traits:
+        items:
+          $ref: '#/definitions/model.InterestsResponse'
+        type: array
+    type: object
+  model.InterestsResponse:
+    properties:
+      emoticon:
+        type: string
+      interest_value:
+        type: string
+    type: object
+  model.MediaOrderId:
+    properties:
+      media_id:
+        type: integer
+      order_id:
+        type: integer
+    type: object
+  model.MessagesIDs:
+    properties:
+      message_ids:
+        items:
+          type: integer
+        type: array
+    type: object
+  model.Nudge:
+    properties:
+      id:
+        type: integer
+      question:
+        type: string
+    type: object
+  model.NudgeDetail:
+    properties:
+      answer:
+        type: string
+      media_url:
+        type: string
+      order:
+        type: integer
+      question:
+        type: string
+      type:
+        type: string
+    type: object
+  model.NudgeRequest:
+    properties:
+      answer:
+        type: string
+      order:
+        type: integer
+      question:
+        type: string
+      type:
+        type: string
+    type: object
+  model.UserLikers:
+    properties:
+      image:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  model.UserLocation:
+    properties:
+      latitude:
+        type: number
+      longitude:
+        type: number
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is a sample server.
+  title: API documentation
+  version: "1.0"
+paths:
+  /chat/last/messages:
+    get:
+      consumes:
+      - application/json
+      description: Get Last Messages of Chats
+      parameters:
+      - description: Chat IDs
+        in: body
+        name: chatIDs
+        required: true
+        schema:
+          $ref: '#/definitions/model.ChatIDs'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: last messages retrieved successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Get Last Messages
+      tags:
+      - Chat
+  /chat/message:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Save Message and Media
+      parameters:
+      - description: Media
+        in: formData
+        name: media
+        required: true
+        type: file
+      - description: Message
+        in: formData
+        name: message
+        required: true
+        type: string
+      - description: Sender ID
+        in: header
+        name: sender_id
+        required: true
+        type: integer
+      - description: Receiver ID
+        in: header
+        name: receiver_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: chat saved successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: SaveMessage
+      tags:
+      - Chat
+  /chat/messages/status:
+    put:
+      consumes:
+      - application/json
+      description: Update Messages Status
+      parameters:
+      - description: Message IDs
+        in: body
+        name: messageIDs
+        required: true
+        schema:
+          $ref: '#/definitions/model.MessagesIDs'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: messages status updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: UpdateMessagesStatus
+      tags:
+      - Chat
+  /chat/user/chats:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve User Chats
+      parameters:
+      - description: Chat ID
+        in: header
+        name: chat_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: chats retrieved successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: RetrieveUserChats
+      tags:
+      - Chat
+  /chat/user/list:
+    get:
+      consumes:
+      - application/json
+      description: Get User Chats List
+      parameters:
+      - description: User ID
+        in: header
+        name: user_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: chats retrieved successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: GetUserChatsList
+      tags:
+      - Chat
+  /create/user_profile/index:
+    get:
+      consumes:
+      - application/json
+      description: Create User Profile Index
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: index created successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: CreateProfileIndex
+      tags:
+      - Profile
+  /create/user_stories/index:
+    get:
+      consumes:
+      - application/json
+      description: Create User Stories Index
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: index created successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: CreateStoriesIndex
+      tags:
+      - Stories
+  /event/index:
+    post:
+      consumes:
+      - application/json
+      description: Create an event index
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+        "400":
+          description: bad request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: CreateEventIndexHandler
+      tags:
+      - Events
+  /events/search:
+    get:
+      consumes:
+      - application/json
+      description: Search events
+      parameters:
+      - description: Event Filter
+        in: body
+        name: eventFilter
+        required: true
+        schema:
+          $ref: '#/definitions/dto.EventFilterDTO'
+      - description: User ID
+        in: header
+        name: user_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.EventResponseDTO'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: SearchEventsHandler
+      tags:
+      - Events
+  /filters:
+    get:
+      consumes:
+      - application/json
+      description: Get filters list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: filters list
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - None: []
+      summary: GetFiltersHandler
+      tags:
+      - Profile
+  /interests:
+    get:
+      consumes:
+      - application/json
+      description: API to get interest list
+      parameters:
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Fetched interests list
+          schema:
+            $ref: '#/definitions/model.InterestsListResponse'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Get Interests_category List
+      tags:
+      - Profile
+  /nudges:
+    get:
+      consumes:
+      - application/json
+      description: API to get nudges list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Fetched nudges list
+          schema:
+            $ref: '#/definitions/model.Nudge'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Get Nudges List
+      tags:
+      - Profile
+  /searchProfile:
+    get:
+      description: API to get user search profile
+      parameters:
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully received profiles.
+          schema:
+            $ref: '#/definitions/elasticsearchPkg.UserProfile'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: UserSearchProfile
+      tags:
+      - Profile
+  /user/advancedFilter:
+    post:
+      consumes:
+      - application/json
+      description: API to update the advanced filter for a user
+      parameters:
+      - description: advancedFilter
+        in: body
+        name: advancedFilter
+        required: true
+        schema:
+          $ref: '#/definitions/dto.AdvancedFilter'
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: advanced filters updated.
+          schema:
+            $ref: '#/definitions/dto.AdvancedFilter'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: updateAdvancedFilter
+      tags:
+      - Profile
+  /user/delete:
+    post:
+      consumes:
+      - application/json
+      description: API for deleting user by updating the email. Just for testing purpose.
+      parameters:
+      - description: User ID
+        in: header
+        name: user_id
+        required: true
+        type: integer
+      - description: new email which will replace the old email
+        in: body
+        name: email
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserEmail'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user deleted successfully.
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Delete user handler
+      tags:
+      - For Testing Purpose Only
+  /user/event:
+    delete:
+      consumes:
+      - application/json
+      description: Delete event for a user
+      parameters:
+      - description: Event Data
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateEventDTO'
+      - description: User ID
+        in: header
+        name: user_id
+        required: true
+        type: integer
+      - description: Event ID
+        in: header
+        name: event_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: event deleted successfully.
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: DeleteUserEventHandler
+      tags:
+      - Events
+    post:
+      consumes:
+      - application/json
+      description: Create an event for a user
+      parameters:
+      - description: User ID
+        in: header
+        name: user_id
+        required: true
+        type: integer
+      - description: Event Data
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateEventDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: event created successfully.
+          schema:
+            $ref: '#/definitions/dto.EventResponseDTO'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: CreateUserEventsHandler
+      tags:
+      - Events
+    put:
+      consumes:
+      - application/json
+      description: Update event for a user
+      parameters:
+      - description: Event Data
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/dto.CreateEventDTO'
+      - description: User ID
+        in: header
+        name: user_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.CreateEventDTO'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: UpdateUserEventHandler
+      tags:
+      - Events
+  /user/events:
+    get:
+      consumes:
+      - application/json
+      description: Get all events for a user
+      parameters:
+      - description: User ID
+        in: header
+        name: user_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.EventResponseDTO'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: GetUserEventsHandler
+      tags:
+      - Events
+  /user/google/login:
+    post:
+      consumes:
+      - application/json
+      description: google login API
+      parameters:
+      - description: ID token
+        in: body
+        name: idToken
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserIDToken'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: GoogleLoginHandler
+      tags:
+      - Authentication
+  /user/interests:
+    get:
+      consumes:
+      - application/json
+      description: API to get user interest list
+      parameters:
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Fetched user interests list
+          schema:
+            $ref: '#/definitions/model.InterestsCategory'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Get User Interests_category List
+      tags:
+      - Profile
+    post:
+      consumes:
+      - application/json
+      description: API to create user interests
+      parameters:
+      - description: userInterests
+        in: body
+        name: interests
+        required: true
+        schema:
+          $ref: '#/definitions/model.InterestsCategory'
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: UserInterests created successfully
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Create User Interests_category
+      tags:
+      - Profile
+    put:
+      consumes:
+      - application/json
+      description: API to update user interests
+      parameters:
+      - description: userInterestsData
+        in: body
+        name: interests
+        required: true
+        schema:
+          $ref: '#/definitions/model.InterestData'
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User interests updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Update User Interests_category
+      tags:
+      - Profile
+  /user/likes:
+    get:
+      description: Get User Likes
+      parameters:
+      - description: user_
+        in: header
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully received user likes
+          schema:
+            items:
+              $ref: '#/definitions/model.UserLikers'
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: error in fetching user match.
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Get user likes
+      tags:
+      - user
+  /user/location:
+    put:
+      consumes:
+      - application/json
+      description: Update user location
+      parameters:
+      - description: location
+        in: body
+        name: location
+        required: true
+        schema:
+          $ref: '#/definitions/model.UserLocation'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user location updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: UpdateLocationHandler
+      tags:
+      - Profile
+  /user/login:
+    post:
+      consumes:
+      - application/json
+      description: User Username and Password login API
+      parameters:
+      - description: userLogin
+        in: body
+        name: userLogin
+        required: true
+        schema:
+          $ref: '#/definitions/dto.Login'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: userLogin
+      tags:
+      - Authentication
+  /user/match:
+    get:
+      description: Get User Match
+      parameters:
+      - description: user_
+        in: header
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully received user match
+          schema:
+            items:
+              $ref: '#/definitions/dto.UserMatchDTO'
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: error in fetching user match.
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: GetUserMatch
+      tags:
+      - user
+  /user/nudge:
+    delete:
+      consumes:
+      - application/json
+      description: Delete user nudges
+      parameters:
+      - description: Nudge ID
+        in: header
+        name: nudge_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user nudge deleted successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: DeleteUserNudge
+      tags:
+      - Profile
+    post:
+      consumes:
+      - application/json
+      description: API to create user nudge
+      parameters:
+      - description: userNudge
+        in: body
+        name: nudge
+        required: true
+        schema:
+          $ref: '#/definitions/model.NudgeDetail'
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: UserNudge created successfully
+          schema:
+            $ref: '#/definitions/model.NudgeDetail'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Create User Nudge
+      tags:
+      - Profile
+    put:
+      consumes:
+      - multipart/form-data
+      description: Update user nudges
+      parameters:
+      - description: nudgeMedia
+        in: formData
+        name: media
+        required: true
+        type: file
+      - description: nudgeRequest
+        in: body
+        name: nudgeRequest
+        required: true
+        schema:
+          $ref: '#/definitions/model.NudgeRequest'
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      - description: nudge_id
+        in: header
+        name: nudgeID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user nudge updated successfully
+          schema:
+            $ref: '#/definitions/model.NudgeDetail'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: UpdateUserNudge
+      tags:
+      - Profile
+  /user/nudge/media:
+    post:
+      consumes:
+      - multipart/form-data
+      description: API to create user nudges with media
+      parameters:
+      - description: nudgeMedia
+        in: formData
+        name: media
+        required: true
+        type: file
+      - description: nudgeRequest
+        in: body
+        name: nudgeRequest
+        required: true
+        schema:
+          $ref: '#/definitions/model.NudgeRequest'
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user nudge created successfully
+          schema:
+            $ref: '#/definitions/model.NudgeDetail'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Create user nudges with media
+      tags:
+      - Profile
+  /user/nudges:
+    get:
+      consumes:
+      - application/json
+      description: API to get user nudges list
+      parameters:
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Fetched user nudges list
+          schema:
+            $ref: '#/definitions/model.NudgeDetail'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Get User nudges List
+      tags:
+      - Profile
+  /user/profile:
+    get:
+      description: API to get the user profile
+      parameters:
+      - description: user_id
+        in: header
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully received profile.
+          headers:
+            token:
+              description: token
+              type: string
+            userID:
+              description: user_id
+              type: string
+          schema:
+            $ref: '#/definitions/dto.UserProfile'
+        "400":
+          description: Bad Request
+          headers:
+            token:
+              description: token
+              type: string
+            userID:
+              description: user_id
+              type: string
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          headers:
+            token:
+              description: token
+              type: string
+            userID:
+              description: user_id
+              type: string
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: getUserProfile
+      tags:
+      - Profile
+    put:
+      consumes:
+      - application/json
+      description: API to store the user profile in elasticsearch and database
+      parameters:
+      - description: userProfile
+        in: body
+        name: userProfile
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserProfile'
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user Profile updated.
+          schema:
+            $ref: '#/definitions/dto.UserProfile'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: updateUserProfile
+      tags:
+      - Profile
+  /user/profileMedia:
+    delete:
+      consumes:
+      - application/json
+      description: API to Delete Profile media.
+      parameters:
+      - description: MediaID
+        in: query
+        name: mediaId
+        required: true
+        type: integer
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully deleted media.
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: DeleteMediaAPI
+      tags:
+      - Media
+    get:
+      description: Get Profile media with order and s3 signed URL
+      parameters:
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully received profile media.
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: GetUserProfileMedia
+      tags:
+      - Media
+    post:
+      consumes:
+      - multipart/form-data
+      description: API to save images to S3 and DB
+      parameters:
+      - description: ImageToUpload
+        in: formData
+        name: images
+        required: true
+        type: file
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully uploaded files.
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: SaveProfileMedia
+      tags:
+      - Media
+  /user/register:
+    post:
+      consumes:
+      - application/json
+      description: User register API
+      parameters:
+      - description: userRegister
+        in: body
+        name: userRegister
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserRegistrationDTO'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user created.
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: userRegister
+      tags:
+      - Authentication
+  /user/searchProfile:
+    get:
+      consumes:
+      - application/json
+      description: API to get the search profile for a user
+      parameters:
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user Search Profile found.
+          schema:
+            $ref: '#/definitions/dto.UserProfile'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: getUserSearchProfile
+      tags:
+      - Profile
+  /user/send/otp:
+    post:
+      consumes:
+      - application/json
+      description: API for sending verification sms to user with OTP
+      parameters:
+      - description: userData
+        in: body
+        name: userData
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OTP sent successfully
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Send OTP
+      tags:
+      - Authentication
+  /user/stories/index:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Create User Stories
+      parameters:
+      - description: Media
+        in: formData
+        name: media
+        required: true
+        type: file
+      - collectionFormat: csv
+        in: formData
+        items:
+          type: number
+        name: location
+        type: array
+      - in: formData
+        name: text
+        type: string
+      - description: User ID
+        in: header
+        name: user_id
+        required: true
+        type: integer
+      - description: User Profile ID
+        in: header
+        name: user_profile_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user stories indexed successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Create User Stories
+      tags:
+      - Stories
+  /user/stories/search/location:
+    get:
+      consumes:
+      - application/json
+      description: Get user stories based on location
+      parameters:
+      - description: Location
+        in: body
+        name: location
+        required: true
+        schema:
+          $ref: '#/definitions/model.UserLocation'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/elasticsearchPkg.UserStories'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: GetUserStoriesByLocation
+      tags:
+      - Stories
+  /user/stories/search/profileID:
+    get:
+      consumes:
+      - application/json
+      description: Get user stories based on profile id
+      parameters:
+      - description: User Profile ID
+        in: header
+        name: user_profile_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/elasticsearchPkg.UserStories'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: GetUserStoriesByProfileID
+      tags:
+      - Stories
+  /user/swipe:
+    post:
+      consumes:
+      - application/json
+      description: swipe
+      parameters:
+      - description: userLike
+        in: body
+        name: userLike
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserLikeDTO'
+      - description: user_id
+        in: header
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: swipe
+      tags:
+      - user
+  /user/update/profileMedia:
+    post:
+      consumes:
+      - application/json
+      description: API to update user media order id
+      parameters:
+      - description: mediaDetails
+        in: body
+        name: mediaDetails
+        required: true
+        schema:
+          $ref: '#/definitions/model.MediaOrderId'
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user media profile updated successfully
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: Update Media Handler
+      tags:
+      - Profile
+  /user/updateSearchProfile:
+    put:
+      consumes:
+      - application/json
+      description: API to update the search profile for a user
+      parameters:
+      - description: userSearchProfile
+        in: body
+        name: userSearchProfile
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserSearchProfile'
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user Search Profile updated.
+          schema:
+            $ref: '#/definitions/dto.UserProfile'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: updateUserSearchProfile
+      tags:
+      - Profile
+  /user/upgradePremium:
+    post:
+      consumes:
+      - application/json
+      description: API to upgrade the profile to premium
+      parameters:
+      - description: user_id
+        in: header
+        name: userID
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: successfully received profile.
+          schema:
+            $ref: '#/definitions/dto.UserProfile'
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: PremiumUpgrade
+      tags:
+      - Profile
+  /user/verify/email:
+    get:
+      description: API for verify email of the user
+      parameters:
+      - description: verification code
+        in: query
+        name: verification_code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: email verified successfully.
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Verify Email
+      tags:
+      - Authentication
+    post:
+      consumes:
+      - application/json
+      description: API for sending verification email to user
+      parameters:
+      - description: send user verification email
+        in: body
+        name: verifyEmail
+        required: true
+        schema:
+          $ref: '#/definitions/dto.UserEmail'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: verification email sent successfully.
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Send Verification Email
+      tags:
+      - Authentication
+  /user/verify/otp:
+    post:
+      consumes:
+      - application/json
+      description: API for verification of the OTP
+      parameters:
+      - description: verify user data
+        in: body
+        name: verifyUser
+        required: true
+        schema:
+          $ref: '#/definitions/dto.VerifyUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Verify OTP
+      tags:
+      - Authentication
+securityDefinitions:
+  ApiKeyAuth:
+    description: token used to authenticate
+    in: header
+    name: token
+    type: apiKey
+swagger: "2.0"

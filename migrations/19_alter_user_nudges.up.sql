@@ -1,0 +1,1 @@
+ALTER TABLE user_nudges ADD COLUMN audio_url VARCHAR(255);

@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS user_device_tokens(
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    device_token text NOT NULL,
+    endpoint_arn text NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(ID)
+);

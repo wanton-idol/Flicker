@@ -1,0 +1,7 @@
+.git
+.gitignore
+vendor
+.circleci
+README.md
+statsd_config_local.js
+docker-compose.yml

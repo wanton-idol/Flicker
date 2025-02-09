@@ -1,0 +1,11 @@
+---
+# For default configuration, see https://yamllint.readthedocs.io/en/stable/configuration.html#default-configuration
+extends: default
+
+rules:
+  trailing-spaces: disable
+  line-length: disable
+  empty-lines:
+    max: 2
+    max-start: 1
+    max-end: 1

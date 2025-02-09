@@ -1,0 +1,1 @@
+ALTER TABLE profile_media DROP COLUMN city;

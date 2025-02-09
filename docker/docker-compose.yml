@@ -1,0 +1,164 @@
+version: "3.7"
+services:
+  # supermatch:
+  #   build:
+  #     context: ..
+  #     dockerfile: Dockerfile
+  #   image: supermatch
+  #   ports:
+  #     - 8080:8080
+#  opensearch-node:
+#    image: opensearchproject/opensearch:latest
+#    container_name: opensearch-node
+#    environment:
+#      - cluster.name=opensearch-cluster
+#      - node.name=opensearch-node
+#      - discovery.type=single-node
+#      - bootstrap.memory_lock=true
+#      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+#      - "OPENSEARCH_SECURITY_ENABLED=true"                                # Enable OpenSearch security plugin
+#      - "OPENSEARCH_SECURITY_AUTHENTICATION_AUTHORIZATION_BASICAUTH_ENABLED=false"  # Enable basic authentication
+##      - "OPENSEARCH_SECURITY_AUTHENTICATION_AUTHORIZATION_BASICAUTH_USERNAME=username"  # Replace 'your_username' with the desired username
+##      - "OPENSEARCH_SECURITY_AUTHENTICATION_AUTHORIZATION_BASICAUTH_PASSWORD=password"  # Replace 'your_password' with the desired password
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+#      nofile:
+#        soft: 65536
+#        hard: 65536
+##    volumes:
+##      - opensearch-data:/usr/share/opensearch/data
+#    volumes:
+#      - opensearch-data:/usr/share/opensearch/data
+#        ./root-ca.pem:/usr/share/opensearch/config/root-ca.pem
+#        ./node.pem:/usr/share/opensearch/config/node.pem
+#        ./node-key.pem:/usr/share/opensearch/config/node-key.pem
+#        ./admin.pem:/usr/share/opensearch/config/admin.pem
+#        ./admin-key.pem:/usr/share/opensearch/config/admin-key.pem
+#        ./custom-opensearch.yml:/usr/share/opensearch/config/opensearch.yml
+#        ./internal_users.yml:/usr/share/opensearch/config/opensearch-security/internal_users.yml
+#        ./roles_mapping.yml:/usr/share/opensearch/config/opensearch-security/roles_mapping.yml
+#        ./tenants.yml:/usr/share/opensearch/config/opensearch-security/tenants.yml
+#        ./roles.yml:/usr/share/opensearch/config/opensearch-security/roles.yml
+#        ./action_groups.yml:/usr/share/opensearch/config/opensearch-security/action_groups.yml
+#    ports:
+#      - '9200:9200'
+#      - '9600:9600'
+#    networks:
+#      - opensearch-net
+
+#  opensearch-dashboards:
+#      image: opensearchproject/opensearch-dashboards:latest
+#      container_name: opensearch-dashboards
+#      ports:
+#        - "5601:5601"
+#      expose:
+#        - "5601"
+#      environment:
+#        OPENSEARCH_HOSTS: '["http://localhost:9200"]'
+#      networks:
+#        - opensearch-net
+
+  #  opensearch: # This is also the hostname of the container within the Docker network (i.e. https://opensearch-node1/)
+  #    image: opensearchproject/opensearch:latest # Specifying the latest available image - modify if you want a specific version
+  #    container_name: opensearch
+  #    environment:
+  #      - cluster.name=opensearch-cluster # Name the cluster
+  #      - node.name=opensearch-node1 # Name the node that will run in this container
+  #      - discovery.seed_hosts=opensearch-node1,opensearch-node2 # Nodes to look for when discovering the cluster
+  #      - cluster.initial_cluster_manager_nodes=opensearch-node1,opensearch-node2 # Nodes eligible to serve as cluster manager
+  #      - bootstrap.memory_lock=true # Disable JVM heap memory swapping
+  #      - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" # Set min and max JVM heap sizes to at least 50% of system RAM
+  #    volumes:
+  #      - opensearch-data1:/usr/share/opensearch/data # Creates volume called opensearch-data1 and mounts it to the container
+  #    ports:
+  #      - 9200:9200 # REST API
+  #      - 9600:9600 # Performance Analyzer
+  #    networks:
+  #      - opensearch-net # All of the containers will join the same Docker bridge network
+  #
+  #  opensearch-dashboards:
+  #    image: opensearchproject/opensearch-dashboards:latest # Make sure the version of opensearch-dashboards matches the version of opensearch installed on other nodes
+  #    container_name: opensearch-dashboards
+  #    ports:
+  #      - 5601:5601 # Map host port 5601 to container port 5601
+  #    expose:
+  #      - "5601" # Expose port 5601 for web access to OpenSearch Dashboards
+  #    environment:
+  #      OPENSEARCH_HOSTS: '["https://opensearch:9200"]' # Define the OpenSearch nodes that OpenSearch Dashboards will query
+  #    networks:
+  #      - opensearch-net
+
+
+  #  elasticsearch:
+  #    image: docker.elastic.co/elasticsearch/elasticsearch:8.6.1
+  #    container_name: elasticsearch
+  #    restart: always
+  #    environment:
+  #      - xpack.security.enabled=false
+  #      - discovery.type=single-node
+  #    volumes:
+  #      - ./elasticsearch-data:/usr/share/elasticsearch/data
+  #    ports:
+  #      - 9200:9200
+  #    networks:
+  #      - esnet
+  #
+  #  kibana:
+  #    container_name: kibana
+  #    image: docker.elastic.co/kibana/kibana:8.6.1
+  #    restart: always
+  #    environment:
+  #      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200    # address of elasticsearch docker container which kibana will connect
+  #    ports:
+  #      - 5601:5601
+  #    depends_on:
+  #      - elasticsearch
+  #    networks:
+  #      - esnet
+
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    restart: always
+    ports:
+      - "3366:3306"
+    environment:
+      - MYSQL_HOST=127.0.0.1
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=supermatch
+      - MYSQL_ROOT_PASSWORD=root
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin -h 'localhost' -u root -pWelcome123 ping --silent"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    volumes:
+      - mysql-data:/usr/share/mysql/data
+#      - ./mysql-data:/var/lib/mysql
+    networks:
+      - dbnet
+
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass password
+    volumes:
+      - redis-data:/usr/share/redis/data
+#      - ./redis-data:/data
+
+volumes:
+#  opensearch-data:
+  mysql-data:
+  redis-data:
+
+networks:
+#  esnet:
+#    driver : bridge
+  dbnet:
+    driver : bridge
+#  opensearch-net:
+#    driver : bridge

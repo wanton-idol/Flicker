@@ -1,0 +1,97 @@
+
+name: CICD
+
+on:
+  push:
+    branches: 
+    - master
+    - staging
+  pull_request:
+    branches:
+    - master
+    - staging
+    
+
+jobs:
+
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: "1.19.x"
+      - uses: actions/checkout@v3
+#       - name: golangci-lint
+#         uses: golangci/golangci-lint-action@v3
+#         with:
+#           version: latest
+  # the "build" workflow
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with: 
+        go-version-file: go.mod
+        cache: true
+        cache-dependency-path: go.sum
+#    - name: golangci-lint
+#      uses: golangci/golangci-lint-action@v3
+#      with:
+#        version: v1.42.1
+#        args: --timeout 5m
+
+     
+
+    - name: install-dependencies
+      run: | 
+        go mod download
+
+    - name: Run build
+      run: go build .
+
+    # -name: Send slack notifications
+    #   - uses: 8398a7/action-slack@v3
+    #   with:
+    #     status: ${{ job.status }}
+    #     fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
+    #   env:
+    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+    #   if: always() # Pick up events even if the job fails or is cancelled.
+
+
+#     - name: Configure AWS credentials
+#       uses: aws-actions/configure-aws-credentials@v2
+#       with:
+#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#         aws-region: ${{ secrets.AWS_REGION }}
+
+#     - name: Login to Amazon ECR
+#       id: login-ecr
+#       uses: aws-actions/amazon-ecr-login@v1
+
+#     - name: Build, tag, and push image to Amazon ECR
+#       env:
+#         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+#         ECR_REPOSITORY: backend
+#         IMAGE_TAG: golang_app
+#       run: |
+#         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+#         docker push $ECR_REGISTRY/$ECR_
+#         REPOSITORY:$IMAGE_TAG  
+
+  
+
+
+           
+
+
+
+
+
+         

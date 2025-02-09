@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS star_sign_filter;

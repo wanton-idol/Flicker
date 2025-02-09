@@ -1,0 +1,1 @@
+DROP TABLE IF EXISTS politics_likes_filter;

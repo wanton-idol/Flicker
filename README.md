@@ -1,8 +1,9 @@
 # Flicker - Where Sparks Turn Into Stories
 
-![Flicker Logo](https://drive.google.com/file/d/1Un9ktcisk2nUoBp9pKWHg3GdjPbhShGJ/view?usp=sharing)
+![Flicker Logo](https://github.com/wanton-idol/Flicker/blob/main/assets/logo.png)
 
 ## Introduction
+
 **Flicker** is a **next-generation dating app** designed for Gen Z, where sparks ignite meaningful stories by blending social vibes with real connections. Built with **scalability, performance, and a microservice-driven architecture**, Flicker ensures seamless interactions, real-time communication, and a personalized user experience.
 
 ## Features
@@ -29,7 +30,9 @@
 - **Migrations:** Go Migrate
 
 ## Architecture
+
 Flicker follows a **microservice architecture**, ensuring modularity, scalability, and better maintenance. Key services include:
+
 1. **User Service:** Handles authentication, profiles, and matchmaking.
 2. **Chat Service:** Manages real-time messaging and chat history.
 3. **Stories Service:** Indexing and retrieving user stories.
@@ -117,7 +120,9 @@ Flicker follows a **microservice architecture**, ensuring modularity, scalabilit
 
 
 ## Installation & Setup
+
 ### Prerequisites
+
 Ensure you have the following installed:
 - Golang 1.18+
 - Docker & Docker Compose
@@ -127,32 +132,29 @@ Ensure you have the following installed:
 - AWS CLI (for cloud services)
 
 ### Steps to Run Locally
+
 1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/flicker.git
-cd flicker
-docker-compose up -d
-```
-
-2. Create a .env file and configure environment variables.
-   
+   ```sh
+   git clone https://github.com/yourusername/flicker.git
+   cd flicker
+   ```
+2. Create a `.env` file and configure environment variables.
 3. Run database migrations:
-```bash
-go run main.go migrate up
-```
-
+   ```sh
+   go run main.go migrate up
+   ```
 4. Start the services using Docker:
-```bash
-docker-compose up --build
-```
-
-Run the application:
-```bash
-go run main.go
-```
+   ```sh
+   docker-compose up --build
+   ```
+5. Run the application:
+   ```sh
+   go run main.go
+   ```
 
 
 ## License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ---

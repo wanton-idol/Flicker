@@ -1,6 +1,9 @@
 # Flicker - Where Sparks Turn Into Stories
 
-![Flicker Logo](https://github.com/wanton-idol/Flicker/blob/main/assets/logo.png)
+<!--  ![Flicker Logo](https://github.com/wanton-idol/Flicker/blob/main/assets/logo.png) --->
+<p align="center">
+  <img src="https://github.com/wanton-idol/Flicker/blob/main/assets/logo.png" alt="Flicker Logo" width="200">
+</p>
 
 ## Introduction
 

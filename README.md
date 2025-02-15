@@ -155,6 +155,26 @@ Ensure you have the following installed:
    go run main.go
    ```
 
+## Unit Testing
+
+Flicker includes unit tests to ensure API reliability and correctness. The test suite covers:
+
+- **Authentication & Authorization** (Login, Registration, OTP verification)
+- **User Profile Management** (Profile creation, updates, search queries)
+- **Matchmaking & Swiping System** (Swiping, matching, user preferences)
+- **Chat System** (Message handling, retrieval, and updates)
+- **Stories & Events** (Indexing, retrieval, search functionality)
+
+### Running Tests
+
+To execute unit tests, run the following command:
+
+```bash
+go test ./...
+```
+
+This will run all test cases across different modules.
+
 
 ## License
 
